@@ -8,8 +8,8 @@ my_project/
 │   ├── interfaces/ ---> Defines the interfaces that connect the application layer with external layers.
 │   │   ├── controllers/ ---> Contains controllers that handle application requests and responses.
 │   │   ├── presenters/ ---> Transforms data from the application layer into a suitable format for the presentation layer.
-│   │   ├── gateways/ ---> Defines interfaces to interact with the infrastructure layer from the application layer.
-│   │   └── tests/ ---> Contains files and logic related to application testing.
+│   │   └── gateways/ ---> Defines interfaces to interact with the infrastructure layer from the application layer.
+│   │   
 │   │
 │   ├── usecases/ ---> Contains the use cases or main functionalities of the application.
 │   │   ├── interactors/ ---> Implements the business logic of the use cases.
@@ -17,6 +17,7 @@ my_project/
 │   │   └── dtos/ ---> Contains data transfer objects used to exchange information between layers.
 │   │
 │   ├── entities/ ---> Contains the domain entities of the application.
+│   └── tests/ ---> Contains files and logic related to application testing.
 │
 ├── infrastructure/ ---> This folder is responsible for technical infrastructure and implementation details.
 │   │
