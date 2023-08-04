@@ -1,31 +1,38 @@
-version: "3"
+version: "3.8"
 
 services:
   db:
-    image: postgres:11
+    container_name: ioet_catalog_db
+    image: postgres
+    restart: always
     ports:
-      - "5432:5432"
+      - 5432:5432
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=test_db
-  web:
-    build: .
-    command: bash -c "alembic upgrade head && uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
-    volumes:
-      - .:/code
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+
+  pgadmin:
+    container_name: ioet_catalog_pgadmin
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
     ports:
-      - "8000:8000"
+      - 5050:80
     depends_on:
       - db
 
-  pgadmin:
-    container_name: pgadmin
-    image: dpage/pgadmin4
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=pgadmin4@pgadmin.org
-      - PGADMIN_DEFAULT_PASSWORD=admin
+  app:
+    container_name: ioet_catalog_app
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    command: bash -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+    volumes:
+      - .:/app
     ports:
-      - "5050:80"
+      - 8000:8000
     depends_on:
       - db
+    restart: always
