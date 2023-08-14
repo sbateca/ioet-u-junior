@@ -26,7 +26,7 @@ if config.config_file_name is not None:
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 
-from app.db.session import Base
+from ioet_catalog.infrastructure.db.session import Base
 
 target_metadata = Base.metadata
 

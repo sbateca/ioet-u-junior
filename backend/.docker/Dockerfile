@@ -13,8 +13,8 @@ ENV PATH=$POETRY_HOME/bin:$PATH
 ENV PYTHONFAULTHANDLER=1
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /app
-COPY . /app
+WORKDIR /ioet_catalog
+COPY . /ioet_catalog
 
 RUN poetry config virtualenvs.create false \
   && poetry install --only main
