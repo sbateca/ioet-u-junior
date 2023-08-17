@@ -3,7 +3,7 @@ from fastapi import FastAPI, APIRouter
 from fastapi_sqlalchemy import DBSessionMiddleware
 from dotenv import load_dotenv
 
-from app.interfaces.controllers.main_router import router as main_router
+from ioet_catalog.api.routers.v1.main_router import router as main_router
 
 load_dotenv(".env")
 

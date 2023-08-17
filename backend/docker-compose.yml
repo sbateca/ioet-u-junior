@@ -28,7 +28,7 @@ services:
     build:
       context: .
       dockerfile: .docker/Dockerfile
-    command: bash -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+    command: bash -c "alembic upgrade head && uvicorn ioet_catalog.main:app --host 0.0.0.0 --port 8000 --reload"
     volumes:
       - .:/app
     ports:
