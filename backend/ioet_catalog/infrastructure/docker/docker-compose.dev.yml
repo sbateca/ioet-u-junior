@@ -1,0 +1,11 @@
+services:
+    ioet-catalog-backend:
+        container_name: ioet-catalog-backend
+        build:
+            context: ../..
+            target: dev
+        volumes:
+            - ../../.:/ioet_catalog
+        ports:
+            - "8000:8000"
+        restart: always
