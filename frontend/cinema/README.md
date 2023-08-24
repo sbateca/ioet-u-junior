@@ -44,7 +44,7 @@ In the `javascript/` folder, create a new file called `get-movie.js`. In this fi
 
 We need to show the film 'One Hundred and One Dalmatians' in a new page. This page should look like this:
 
-![Movie Page Mockup](/movie-page-mockup.png?raw=true "Mockup")
+![Movie Page Mockup](./movie-page-mockup.png?raw=true "Mockup")
 
 So, create a new file in the `pages/` folder called `one-hundred-and-one-damatians.html`. Here, add the following piece of code:
 
