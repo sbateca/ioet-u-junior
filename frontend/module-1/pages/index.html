@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/global.css"/>
+    <title>Document</title>
+    <script src="../javascript/get-movies.js"></script>
+    <script src="../javascript/constants.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="about-us">
+            <div class="social-media">
+                <img src="../resources/icons/facebook.png">
+                <img src="../resources/icons/twitter.png">
+                <img src="../resources/icons/instagram.png">
+            </div>
+            <div></div>
+            <div class="login">
+                <button class="sign-up">Sign Up</button>
+                <button class="log-in">Log in</button>
+            </div>
+        </nav>
+        <nav class="shop-options">
+            <img class="logo" src="../images/cinemark_logo.png" />
+            <nav class="options">
+                <h3>Billboard</h3>
+                <h3>Theaters</h3>
+                <h3>Snackbar</h3>
+                <h3>Promotions</h3>
+            </nav>
+        </nav>
+    </header>
+
+    <div class="banner">
+        <button class="more-information">More Information</button>
+    </div>
+
+    <div class="filter">
+        <div class="city-filter">
+            <h3>You are in:</h2>
+            <select required aria-placeholder="Value2">
+                <option value="None" hidden>None</option>
+                <option value="value2">Value 2</option>
+                <option value="value3">Value 3</option>
+            </select>
+        </div>
+        <div class="local-filter">
+            <h3>Theaters:</h2>
+            <select required aria-placeholder="Value2">
+                <option value="None" hidden>None</option>
+                <option value="value2">Value 2</option>
+                <option value="value3">Value 3</option>
+            </select>
+        </div>
+    </div>
+
+    <h1>Billboard</h1>
+    <div class="movie-list" id="movie-list">
+    </div>
+</body>
+<script type="module">
+    const createImag = (movie) => {
+        const imag = movie.primaryImage.url
+        const alternativeText = movie.primaryImage.caption.plainText
+        const imgElement = document.createElement("img");
+        imgElement.src = imag
+        imgElement.alt = alternativeText
+        return imgElement  
+    }
+
+    load_data(API_URL, OPTIONS)
+        .then((data) => {
+            data.map((movie) => {
+                const container = document.createElement("div")
+                container.className = "poster-container"
+
+                const imgElement = createImag(movie)
+                container.appendChild(imgElement)
+
+                const buttonElement = document.createElement("button")
+                buttonElement.textContent = "View"
+                buttonElement.className = "schedules"
+                buttonElement.setAttribute('data-movie-id', movie.id)
+                container.appendChild(buttonElement)
+
+                const element = document.getElementById("movie-list");
+                element.appendChild(container);
+            })
+        })
+</script>
+<footer>
+    <div class="about-us">
+        <h2>About</h2>
+        <h3>Who are we?</h3>
+        <h3>Terms and Conditions</h3>
+    </div>
+    <div class="contact-us">
+        <h2>Contact us</h2>
+        <h3>FAQs</h3>
+    </div>
+    <div class="maketing-empresarial">
+        <h2>Marketing</h2>
+        <h3>Services</h3>
+    </div>
+    <div class="downloads">
+        <h2>Download our App</h2>
+    </div>
+    <div class="apps">
+        <img src="../resources/icons/facebook-red.png" alt="">
+        <img src="../resources/icons/twitter-red.png" alt="">
+        <img src="../resources/icons/instagram-red.png" alt="">
+    </div>
+</footer>
+</html>
+
+
+<div class="jsx-1582078834 detailMovie__container ">
+    <div class="ant-col ant-col-xs-0 ant-col-sm-0 ant-col-md-24 ant-col-lg-24 ant-col-xl-24 ant-col-xxl-24">
+        <div class="jsx-1582078834 moviePoster loader-container">
+            <div class="jsx-300486178fec15d loader ">
+                <div class="jsx-300486178fec15d icon-loader">
+                    <div class="jsx-1448864945 loading-background">
+                        <img src="/static/svg/icon-loading-white.svg" alt="loading" class="jsx-1448864945">
+                    </div>
+                </div>
+                <span class="jsx-300486178fec15d d-block text--sentence-case text-loader">
+                    cargando
+                </span>
+            </div>
+            <img src="https://assets.cinemark-core.com/5e95bbbf6f5f880007816bc9/vista/movies/64c14b6c2eddcf0008a236f8/common/sonido-de-libertad-94362-1690389379627.jpg" alt="SONIDO DE LIBERTAD " class="jsx-1582078834">
+        </div>
+    </div>
+    <div>
+        <h4 class="jsx-1582078834 text--uppercase">título original</h4>
+    <p class="jsx-1582078834 text-justify">SONIDO DE LIBERTAD </p>
+    <div class="jsx-1582078834 separator--dashed"></div>
+    <h4 class="jsx-1582078834 text--uppercase">reparto</h4>
+    <p class="jsx-1582078834 text-justify">Jim Caviezel,  Mira Sorvino,  Bill Camp</p>
+    <div class="jsx-1582078834 separator--dashed"></div>
+    <h4 class="jsx-1582078834 text--uppercase">sinopsis</h4>
+    <p class="jsx-1582078834 text-justify">
+        <span class="jsx-1582078834">Sonido de Libertad es una película basada en hechos reales que expone la oscuridad del tráfico de niños. Un agente federal salva a un niño de los traficantes, pero su hermana sigue cautiva. Se embarca...</span>
+        <br class="jsx-1582078834">
+        <span class="jsx-1582078834 link--red">
+            <span class="jsx-1582078834 text--uppercase">leer más</span>
+        </span>
+    </p>
+    <div class="ant-row">
+        <div class="ant-col ant-col-xs-0 ant-col-sm-0 ant-col-md-24 ant-col-lg-24 ant-col-xl-24 ant-col-xxl-24">
+            <div class="jsx-1582078834 detailMovie__shape detailMovie__shape--bottom">
+
+            </div>
+        </div>
+    </div>
+    <div class="jsx-1582078834 separator--dashed">
+
+    </div>
+    <h4 class="jsx-1582078834 text--uppercase">clasificación</h4>
+    <p class="jsx-1582078834 text-justify text--sentence-case">12+</p>
+    </div>
+</div>
