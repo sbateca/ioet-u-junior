@@ -16,7 +16,28 @@ The application stucture is the following:
 
 ### Run the application
 
-Open the file `/pages/index.html` using your favorite browser
+Open the file `/pages/index.html` using your favorite browser.
+
+### Run tests
+
+```
+npm test
+```
+Keep in mind that there are various types of tests. In unit tests it's essential to avoid making external API calls, as they are designed to evaluate individual units of code in isolation.
+
+### Create Rapid API Key
+
+You will need your own API Key to complete this exercise, the project uses Rapid API for retrieving movie data.
+Please follow the steps below to create it:
+
+
+1. Create a new account on [RapidAPI](https://rapidapi.com/hub)
+2. Fill in your information and choose the free plan.
+3. Go to the [Dashboard or Apps tab](https://rapidapi.com/developer/dashboard).
+4. RapidAPI provides a default application, if you do not want to create a new one you can proceed to step 6.
+5. Click 'Add New App', provide a name and description for your app and then click 'Add app'.
+6. Find your API key in the 'Authorization' section of your app.
+7. Copy the value in the `X-RapidAPI-Key` header under OPTIONS in `javascript/constants.js`
 
 ## Requirements
 
@@ -32,13 +53,15 @@ Currently, the Little Mermaid banner in the home page is not responsive. Make th
 
 The Cinemark logo seems to be broken. Please, make sure it renders.
 
-### 4. Add a unit testing for the `load_data` function
+### 4. Add a unit testing for the `get_movies` function
 
-The function `load_data` has no tests. Add the corresponding unit tests. Create a file called `get-movies.test.js` under the folder `test/`. There, add the testing cases you consider necessary for this function.
+The function `get_movies` has no tests. Add the corresponding unit tests. Create a file called `get-movies.test.js` under the folder `test/`. There, add the testing cases you consider necessary for this function.
 
 ### 5. Create a service to get a movie by id
 
-In the `javascript/` folder, create a new file called `get-movie.js`. In this file, add a new service to get movies by id. The id will be passed as argument. This service should also have its testing cases within `test/get-movie.test.js` just as in requirement 4. The endpoint we would call is `https://moviesdatabase.p.rapidapi.com/titles/{movie-id}` where `movie-id` can be any string.
+In the `javascript/` folder, create a new file called `get-movie.js`. In this file, add a new service to get movies by id. The id will be passed as argument. This service should also have its testing cases within `test/get-movie.test.js` just as in requirement 4. The endpoint we would call is `https://moviesdatabase.p.rapidapi.com/titles/{id}?info=base_info` where `movie-id` can be any string.
+
+In the `javascript/constants.js` file, you'll find a constant named API_MOVIE_ID_URL. You can use it if you find it helpful.
 
 ### 6. Create the `One Hundred and One Dalmatians` page
 
@@ -143,5 +166,5 @@ So, create a new file in the `pages/` folder called `one-hundred-and-one-damatia
 ```
 
 Use the service created in the `5` to fetch the movie information. The id of this movie is 'tt0055254'. In order to apply the styles, you can use the `css/global.css` file.
-> Hint
+> Hint:
 > You can use flex box or grid in order to acomplish this view
