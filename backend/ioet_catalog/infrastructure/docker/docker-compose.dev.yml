@@ -1,4 +1,3 @@
-version: '3'
 services:
     ioet-catalog-backend:
         container_name: ioet-catalog-backend
