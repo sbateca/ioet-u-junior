@@ -1,15 +1,13 @@
 from fastapi import APIRouter, Depends
 
-from app.products.core.enums import ProductStatuses
-from app.products.factories import get_products_case
-from app.products.use_cases import GetProductsReponse, GetProductsRequest
+from app.src.use_cases import ListProducts, ListProductResponse
+from factories.use_cases import list_product_use_case
 
 product_router = APIRouter(prefix="/products")
 
-
-@product_router.get("/", response_model=GetProductsReponse)
+@product_router.get("/", response_model=ListProductResponse)
 async def get_products(
-    status: ProductStatuses | None = None, use_case=Depends(get_products_case)
-) -> GetProductsReponse:
-    request = GetProductsRequest(status=status)
-    return use_case(request)
+    use_case: ListProducts = Depends(list_product_use_case)
+) -> ListProductResponse:
+    response = use_case()
+    return response   

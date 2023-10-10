@@ -6,7 +6,7 @@ from ..enums import ProductStatuses
 
 
 class Product(BaseModel):
-    id: str
+    product_id: str
     user_id: str
     name: str
     description: str | None

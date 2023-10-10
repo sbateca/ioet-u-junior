@@ -3,7 +3,7 @@ from decimal import Decimal
 from ..core.enums import ProductStatuses
 from ..core.models import Product
 from ._requests import GetProductsRequest
-from ._responses import GetProductResponse, GetProductsReponse
+from ._responses import GetProductResponse, GetProductsResponse
 
 
 class GetProductsCase:
@@ -44,12 +44,12 @@ class GetProductsCase:
             filter_products = filter(
                 lambda product: product.status == request.status, all_products
             )
-            return GetProductsReponse(
+            return GetProductsResponse(
                 products=[
                     GetProductResponse(**product.dict())
                     for product in list(filter_products)
                 ]
             )
-        return GetProductsReponse(
+        return GetProductsResponse(
             products=[GetProductResponse(**product.dict()) for product in all_products]
         )

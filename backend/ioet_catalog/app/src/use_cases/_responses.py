@@ -13,5 +13,5 @@ class GetProductResponse(BaseModel):
     is_available: bool
 
 
-class GetProductsReponse(BaseModel):
+class GetProductsResponse(BaseModel):
     products: list[GetProductResponse]
