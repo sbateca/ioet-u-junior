@@ -22,5 +22,5 @@ class ProductRepository(ABC):
     raise NotImplementedError
   
   @abstractmethod
-  def delete(delf, product_id: str) -> Product:
+  def delete(self, product_id: str) -> Product:
     raise NotImplementedError
