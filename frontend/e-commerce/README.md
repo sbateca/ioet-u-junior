@@ -52,16 +52,18 @@ Keep in mind that there are various types of lind warnings. We advice to solve e
 
 - Fix the product's card size so that all can have the same size.
 
-- Fix filters by price that is not working.
+- Fix filters by price. This is currently not working.
 
-- Fix the filter by category that is not working when it is selected. Remember to use the category from the API.
+- Fix the filter by category. The filter should apply when the category is selected. Remember to use the `category` attribute from the API.
 
-- Fix the filters by rate so that the app can use the same rate from the API.
+- Fix the filters by rate so that the app can use the same rate from the API. The attriobute you should use is `rate` that is inside the attribute `rating`
 
-- Create a component for the cart. It is important to complete this task in order to complete the following tasks:
-    - Include the “Add to cart” function for each product.
+- Create a component for the cart. [Here](https://www.figma.com/file/sABAS69warhZ3197HQmSyn/store?type=design&node-id=0%3A1&mode=design&t=APO0wcv7u2swFIC4-1) is the mockup of the cart. The implementation needs to match the design of figma and it should be functional.
 
-    - Include the “Remove from cart” funcion each product added to the cart.
+> **Note:** This task can be divided into multiple subtasks. You can create as many as you need. If you create subtasks, you can create a notion page with the list of subtasks following the tickets creation standards. We will take into account this notion doc for your final score.
 
-    For both tasks you can use the UseContext hook.
-### Use category from API (Placeholder)
+It is important to complete this task in order to complete the following tasks:
+- Include the “Add to cart” function for each product.
+- Include the “Remove from cart” funcion each product added to the cart.
+
+For both tasks you can use the UseContext hook.
