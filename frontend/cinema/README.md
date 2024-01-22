@@ -14,9 +14,23 @@ The application stucture is the following:
 - test
 ```
 
+### Install dependencies
+
+In order to install the dependencies, make sure to be in the cinema repository. And, run 
+```
+npm install
+```
+
 ### Run the application
 
-Open the file `/pages/index.html` using your favorite browser.
+Yo get the application started, run:
+
+```
+npm start
+```
+
+***Important***
+Go to [http://127.0.0.1:8080/pages/](http://127.0.0.1:8080/pages/) in order to see the landing page
 
 ### Run tests
 
