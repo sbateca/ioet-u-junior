@@ -51,7 +51,11 @@ Please follow the steps below to create it:
 4. RapidAPI provides a default application, if you do not want to create a new one you can proceed to step 6.
 5. Click 'Add New App', provide a name and description for your app and then click 'Add app'.
 6. Find your API key in the 'Authorization' section of your app.
-7. Copy the value in the `X-RapidAPI-Key` header under OPTIONS in `javascript/constants.js`
+7. Copy the value in the `X-RapidAPI-Key` header under OPTIONS in `javascript/constants.js`.
+8. Now, go to [MoviesDatabase](https://rapidapi.com/SAdrian/api/moviesdatabase/) and press the button `Subscribe to Test`.
+9. Select the 'Basic' plan.
+
+With this, you should be able to test the API!
 
 ## Requirements
 
