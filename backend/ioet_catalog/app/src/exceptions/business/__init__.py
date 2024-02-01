@@ -1,1 +1,9 @@
-from .base import BusinessException
+from .base import (
+  BusinessException,
+  NotFoundException
+)
+
+from .product import (
+  ProductBusinessException, 
+  ProductNotFoundException
+)

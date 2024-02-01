@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 from app.src import ProductRepository, ProductRepositoryException, Product
 
 class MemoryProductRepository(ProductRepository):
@@ -12,3 +12,26 @@ class MemoryProductRepository(ProductRepository):
       return self.products
     except ProductRepositoryException:
       raise ProductRepositoryException(method="list")
+
+  def create(self, product: Product) -> Product:
+    # Needs Implementation
+    pass
+
+  def get_by_id(self, product_id: str) -> Optional[Product]:
+    try:
+      return next(
+        (product for product in self.products if product.product_id == product_id),
+        None,
+      )
+    except Exception:
+      raise ProductRepositoryException(method="find")
+
+  def edit(self, product: Product) -> Product:
+    # Needs Implementation
+    pass
+
+  def delete(self, product_id: str) -> Product:
+    # Needs Implementation
+    pass
+from typing import List
+from app.src import ProductRepository, ProductRepositoryException, Product

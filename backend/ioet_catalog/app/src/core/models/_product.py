@@ -1,11 +1,13 @@
 from decimal import Decimal
 
 from pydantic import BaseModel
+from typing import NamedTuple
+
 
 from ..enums import ProductStatuses
 
 
-class Product(BaseModel):
+class Product(NamedTuple):
     product_id: str
     user_id: str
     name: str
