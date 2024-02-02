@@ -6,5 +6,8 @@ from .product import (
   ListProducts, 
   FindProductById, 
   FindProductByIdRequest, 
-  FindProductByIdResponse
+  FindProductByIdResponse,
+  CreateProduct,
+  CreateProductResponse,
+  CreateProductRequest
 )

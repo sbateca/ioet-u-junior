@@ -31,11 +31,27 @@ class SQLProductRepository(ProductRepository):
     except Exception:
       self.session.rollback()
       raise ProductRepositoryException(method="list")
-    
+
   def create(self, product: Product) -> Product:
-    # Needs Implementation
-    pass
-  
+    try:
+      product_to_create = ProductSchema(
+        product_id = product.product_id,
+        user_id = product.user_id,
+        name = product.name,
+        description = product.description,
+        price = product.price,
+        location = product.location,
+        status = product.status,
+        is_available = product.is_available
+      )
+      with self.session as session:
+        session.add(product_to_create)
+        session.commit()
+      return product
+    except Exception:
+      self.session.rollback()
+      raise ProductRepositoryException(method="create")
+
   def get_by_id(self, product_id: str) -> Optional[Product]:
     try:
       with self.session as session:
@@ -57,11 +73,11 @@ class SQLProductRepository(ProductRepository):
     except Exception:
       self.session.rollback()
       raise ProductRepositoryException(method="find")
-  
+
   def edit(self, product: Product) -> Product:
     # Needs Implementation
     pass
-  
+
   def delete(self, product_id: str) -> Product:
     # Needs Implementation
     pass

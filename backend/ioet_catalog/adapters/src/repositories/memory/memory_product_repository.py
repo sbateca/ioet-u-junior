@@ -14,8 +14,11 @@ class MemoryProductRepository(ProductRepository):
       raise ProductRepositoryException(method="list")
 
   def create(self, product: Product) -> Product:
-    # Needs Implementation
-    pass
+    try:
+      self.products.append(product)
+      return product
+    except Exception:
+      raise ProductRepositoryException(method="create")
 
   def get_by_id(self, product_id: str) -> Optional[Product]:
     try:
@@ -33,5 +36,3 @@ class MemoryProductRepository(ProductRepository):
   def delete(self, product_id: str) -> Product:
     # Needs Implementation
     pass
-from typing import List
-from app.src import ProductRepository, ProductRepositoryException, Product
