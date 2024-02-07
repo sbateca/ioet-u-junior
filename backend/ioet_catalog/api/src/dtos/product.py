@@ -30,3 +30,9 @@ class UpdateProductRequestDto(ProductBase):
 
 class UpdateProductResponseDto(ProductBase):
     ...
+
+class DeleteProductRequestDto(ProductBase):
+    ...
+
+class DeleteProductResponseDto(ProductBase):
+    ...
