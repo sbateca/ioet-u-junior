@@ -1,5 +1,3 @@
-from typing import List
-
 from fastapi import APIRouter, Depends
 
 from app.src.use_cases import (
@@ -12,13 +10,14 @@ from app.src.use_cases import (
     CreateProductResponse, 
     CreateProductRequest,
     UpdateProduct,
-    UpdateProductResponse,
     UpdateProductRequest,
+    UpdateProductResponse,
     UpdateProductRequestElement,
     ProductIdRequestElement,
     DeleteProduct,
-    DeleteProductResponse,
-    DeleteProductRequest
+    DeleteProductRequest,
+    FindProductByStatus,
+    FindProductByStatusRequest
 )
 from ..dtos import (
     ProductBase,
@@ -28,17 +27,17 @@ from ..dtos import (
     FindProductByIdResponseDto,
     UpdateProductRequestDto,
     UpdateProductResponseDto,
-    DeleteProductResponseDto
+    DeleteProductResponseDto,
+    FindProductByStatusResponseDto
 )
 from factories.use_cases import (
     list_product_use_case, 
     find_product_by_id_use_case,
     create_product_use_case,
     update_product_use_case,
-    delete_product_use_case
+    delete_product_use_case,
+    find_product_by_status_use_case
 )
-from app.src.core.models import Product
-from app.src.core.enums import ProductStatuses
 
 product_router = APIRouter(prefix="/products")
 
@@ -93,7 +92,7 @@ async def update_product(
     product_id: str,
     request: UpdateProductRequestDto,
     use_case: UpdateProduct = Depends(update_product_use_case)
-) -> UpdateProductResponseDto:
+) -> UpdateProductResponse:
     product_request_element = UpdateProductRequestElement(
         product_id=request.product_id, 
         user_id=request.user_id, 
@@ -119,4 +118,24 @@ async def delete_product(
 ) -> DeleteProductResponseDto:
     delete_response = use_case(DeleteProductRequest(product_id=product_id))
     response_dto: DeleteProductResponseDto = DeleteProductResponseDto(**delete_response._asdict())
+    return response_dto
+
+@product_router.get("/status/{status}", response_model=FindProductByStatusResponseDto)
+async def find_product_by_status(
+    status: str,
+    use_case: FindProductByStatus=Depends(find_product_by_status_use_case)
+) -> FindProductByStatusResponseDto:
+    response = use_case(FindProductByStatusRequest(status=status))
+    response_dto: FindProductByStatusResponseDto = FindProductByStatusResponseDto(
+        products= [ProductBase(
+            product_id=product.product_id,
+            user_id=product.user_id,
+            name=product.name,
+            description=product.description,
+            price=product.price,
+            location=product.location,
+            status=product.status,
+            is_available=product.is_available
+            ) for product in response.products]
+    )
     return response_dto

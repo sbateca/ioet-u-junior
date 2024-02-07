@@ -6,5 +6,6 @@ from .product import (
   FindProductByIdResponseDto,
   UpdateProductRequestDto,
   UpdateProductResponseDto,
-  DeleteProductResponseDto
+  DeleteProductResponseDto,
+  FindProductByStatusResponseDto
 )

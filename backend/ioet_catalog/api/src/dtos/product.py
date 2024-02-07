@@ -36,3 +36,6 @@ class DeleteProductRequestDto(ProductBase):
 
 class DeleteProductResponseDto(ProductBase):
     ...
+
+class FindProductByStatusResponseDto(BaseModel):
+    products: List[ProductBase]
