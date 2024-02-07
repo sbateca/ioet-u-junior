@@ -12,8 +12,8 @@ def product_repository_mock(mocker):
     return mocker.MagicMock()
 
 class TestGetProductsCase:
-    def test__returns_an_updated_product(self, product_repository_mock, fake_product):
-        product_repository_mock.edit.return_value = fake_product
+    def test__returns_an_updated_product(self, fake_product_repository, fake_product):
+        fake_product_repository.edit.return_value = fake_product
 
         fake_request: UpdateProductRequestDto = UpdateProductRequestDto(
             product_id=fake_product.product_id,
@@ -38,7 +38,7 @@ class TestGetProductsCase:
         )
         fake_product_id_request_element = ProductIdRequestElement(product_id=fake_product.product_id)
 
-        response = UpdateProduct(product_repository_mock).__call__(
+        response = UpdateProduct(fake_product_repository).__call__(
             UpdateProductRequest(
                 fake_product_request_element,
                 fake_product_id_request_element
