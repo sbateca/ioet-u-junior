@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import List, Optional
 
-from ..core.models import Product
+from app.src.core.models._product import Product
 
 
 class ProductRepository(ABC):
@@ -23,4 +23,8 @@ class ProductRepository(ABC):
   
   @abstractmethod
   def delete(self, product_id: str) -> Product:
+    raise NotImplementedError
+
+  @abstractmethod
+  def find_by_status(self, product_status: str) -> List[Product]:
     raise NotImplementedError

@@ -1,17 +1,14 @@
-import pytest
-from pytest_mock import mocker
-
 from app.src.use_cases.product.update.use_case import UpdateProduct
-from app.src.use_cases.product.update.request import UpdateProductRequestElement, ProductIdRequestElement, UpdateProductRequest
+from app.src.use_cases.product.update.request import (
+    UpdateProductRequestElement,
+    ProductIdRequestElement,
+    UpdateProductRequest
+)
 from app.src.use_cases.product.update.response import UpdateProductResponse
 from api.src.dtos.product import UpdateProductRequestDto
 
 
-@pytest.fixture
-def product_repository_mock(mocker):
-    return mocker.MagicMock()
-
-class TestGetProductsCase:
+class TestUpdateProductsCase:
     def test__returns_an_updated_product(self, fake_product_repository, fake_product):
         fake_product_repository.edit.return_value = fake_product
 
