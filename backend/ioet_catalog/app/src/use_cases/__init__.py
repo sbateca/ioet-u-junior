@@ -9,5 +9,10 @@ from .product import (
   FindProductByIdResponse,
   CreateProduct,
   CreateProductResponse,
-  CreateProductRequest
+  CreateProductRequest,
+  UpdateProduct,
+  UpdateProductResponse,
+  UpdateProductRequestElement,
+  ProductIdRequestElement,
+  UpdateProductRequest
 )
