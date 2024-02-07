@@ -80,37 +80,6 @@ class FakeSQLProductRepository(ProductRepository):
                 status=ProductStatuses.NEW,
                 is_available=True
         )
-    
-    
-# @pytest.fixture
-# def fake_sql_product_repository(mocker):
-#     mocker.patch.object(
-#         FakeSQLProductRepository,
-#         "list_all",
-#         side_effect=FakeSQLProductRepository.list_all,
-#     )
-#     mocker.patch.object(
-#         FakeSQLProductRepository,
-#         "find_by_id",
-#         side_effect=FakeSQLProductRepository.find_by_id,
-#     )
-#     mocker.patch.object(
-#         FakeSQLProductRepository,
-#         "create",
-#         side_effect=FakeSQLProductRepository.create,
-#     )
-#     mocker.patch.object(
-#         FakeSQLProductRepository,
-#         "edit",
-#         side_effect=FakeSQLProductRepository.edit,
-#     )
-#     mocker.patch.object(
-#         FakeSQLProductRepository,
-#         "delete",
-#         side_effect=FakeSQLProductRepository.delete,
-#     )
-#     return FakeSQLProductRepository()
-
 
 @pytest.fixture
 def fake_sql_repository(fake_db_session):

@@ -31,3 +31,4 @@ def fake_product_list():
         status=fake.random_element(elements=(ProductStatuses.NEW, ProductStatuses.USED)),
         is_available=fake.boolean()
     ) for _ in range(2)]
+    
