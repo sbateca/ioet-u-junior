@@ -14,5 +14,8 @@ from .product import (
   UpdateProductResponse,
   UpdateProductRequestElement,
   ProductIdRequestElement,
-  UpdateProductRequest
+  UpdateProductRequest,
+  DeleteProductRequest,
+  DeleteProductResponse,
+  DeleteProduct
 )

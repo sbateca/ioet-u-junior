@@ -5,5 +5,6 @@ from .product import (
   CreateProductResponseDto, 
   FindProductByIdResponseDto,
   UpdateProductRequestDto,
-  UpdateProductResponseDto
+  UpdateProductResponseDto,
+  DeleteProductResponseDto
 )
