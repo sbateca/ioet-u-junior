@@ -2,7 +2,7 @@
 FROM python:3.10-slim-bullseye AS base_image
 
 RUN apt-get update && \
-  apt-get install -y && \
+  apt-get install -y libpq-dev && \
   apt-get clean -y
 
 WORKDIR /ioet_catalog
@@ -20,4 +20,4 @@ FROM base_image as dev
 
 RUN poetry install --no-root
 
-CMD ["uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--env-file", ".env"]
+CMD ["uvicorn", "main:app", "--reload", "--host", "0.0.0.0"]
