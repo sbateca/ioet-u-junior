@@ -90,7 +90,7 @@
                 { fieldName: "NAME", fieldValue: movie.titleText.text },
                 { fieldName: "GENRES", fieldValue: getGenresText(movie.genres) },
                 { fieldName: "SINOPSIS", fieldValue: movie.plot.plotText.plainText },
-                { fieldName: "DURATION", fieldValue: secondsAsMinutesSeconds(movie.runtime.seconds) }
+                { fieldName: "DURATION", fieldValue: secondsAsHoursMinutes(movie.runtime.seconds) }
             ]
             const detailsInfo = document.createElement("div");
             detailsInfo.className = "movie-details-info"
@@ -109,9 +109,11 @@
             details.appendChild(detailsInfo);
         });
 
-    const secondsAsMinutesSeconds = (seconds) => {
-        return `${Math.floor(seconds / 60).toString().padStart(2, '0')}:${(seconds % 60).toString().padStart(2, '0')}`;
-    }
+    const secondsAsHoursMinutes = (seconds) => {
+        const hours = Math.floor(seconds / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);    
+        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+    };
     const getGenresText = (genres) => {
         return genres.genres.map((genre) => genre.text).join(", ");
     }
