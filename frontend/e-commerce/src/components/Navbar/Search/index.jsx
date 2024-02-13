@@ -1,14 +1,26 @@
-import { useContext } from 'react';
-import { SearchContext } from '../../../contexts/SearchContext'
+import { useContext, useEffect } from 'react';
+import { SearchContext } from '../../../contexts/SearchContext';
+
 import './Search.css'
 
 function Search () {
     const {
         searchValue,
         setSearchValue,
+        setFilter
     } = useContext(SearchContext);
 
-    return (
+    useEffect(() => {
+        const filter = {
+          title: searchValue,
+        };
+        setFilter((prevState) => ({
+          ...prevState,
+          ...filter,
+        }));
+      }, [searchValue]);
+
+      return (
         <div className='SearchContainer'>
             <input
                 placeholder='Search...'

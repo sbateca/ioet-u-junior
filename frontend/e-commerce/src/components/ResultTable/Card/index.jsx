@@ -3,13 +3,14 @@ import { Detail } from './Detail'
 import { SearchContext } from '../../../contexts/SearchContext';
 import './Card.css'
 
-function Card ({ image, title, price, description }) {
+function Card ({ image, title, price, description, rate }) {
     const {
         setIsOpen,
         setImageProduct,
         setTitleProduct,
         setPriceProduct,
         setDescriptionProduct,
+        setRateProduct,
     } = useContext(SearchContext);
 
     const openModal = () => {
@@ -18,6 +19,7 @@ function Card ({ image, title, price, description }) {
         setTitleProduct(title)
         setPriceProduct(price)
         setDescriptionProduct(description)
+        setRateProduct(rate)
     }
 
     return (
@@ -28,6 +30,7 @@ function Card ({ image, title, price, description }) {
             <Detail 
                 title = {title}
                 price = {price}
+                rate = {rate}
             />
         </div>
     )

@@ -18,13 +18,15 @@ function ResultTable () {
                     <span className="loader"></span>
                     :
                     searchedProducts.map((product, index) => 
-                        <Card
+                        {
+                        return <Card
                             key={index}
                             image = {product.image}
                             title = {product.title}
                             price = {product.price}
                             description = {product.description}
-                        />
+                            rate = {product.rating.rate}
+                        />}
                     )
                 }
             </div>
