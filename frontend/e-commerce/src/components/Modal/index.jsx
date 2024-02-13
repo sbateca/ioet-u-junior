@@ -11,7 +11,8 @@ function Modal () {
         imageProduct,
         titleProduct,
         priceProduct,
-        descriptionProduct
+        descriptionProduct,
+        rate
     } = useContext(SearchContext);
 
     const setCloseModal = () => {
@@ -30,7 +31,7 @@ function Modal () {
                         <h3>{titleProduct}</h3>
                         <h3>${priceProduct}</h3>
                     </div>
-                    <Rating stars={3}/>
+                    <Rating stars={Math.round(rate)}/>
                     <h6>{descriptionProduct}</h6>
                     <div className='DetailsButtonsActions'>
                         <AddToCartButton />

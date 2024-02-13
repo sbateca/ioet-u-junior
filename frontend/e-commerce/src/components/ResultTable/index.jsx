@@ -17,7 +17,7 @@ function ResultTable () {
                 {   isLoading ?
                     <span className="loader"></span>
                     :
-                    searchedProducts.map((product, index) => 
+                    searchedProducts.length > 0 ? ( searchedProducts.map((product, index) => 
                         {
                         return <Card
                             key={index}
@@ -25,9 +25,10 @@ function ResultTable () {
                             title = {product.title}
                             price = {product.price}
                             description = {product.description}
-                            rate = {product.rating.rate}
+                            rate = {Math.round(product.rating.rate)}
                         />}
-                    )
+                    )):
+                    <h3>No results found</h3>
                 }
             </div>
             {isOpen && <Modal />}

@@ -14,9 +14,10 @@ function SearchProvider({ children }) {
   const [rate, setRateProduct] = useState(0);
   const [orderValue, setOrderValue] = useState("");
   const [searchedProducts, setSearchedProducts] = useState([]);
+  const [selectedStar, setSelectedStar] = useState(5);
   const [filter, setFilter] = useState({
     title: "",
-    rate: "",
+    rate: 5,
     categories: []
   });
 
@@ -52,31 +53,20 @@ function SearchProvider({ children }) {
   }, [filter]);
 
   const filterProducts = () => {
-    let filteredProducts = [...products];
-    if (filter.title === "" && filter.rate === "" && filter.categories.length === 0) {
-      setSearchedProducts(products);
-    }
-    else {
-      if (filter.title !== "") {
-        filteredProducts = filteredProducts.filter((product) => {
-          const productName = product.title.toLowerCase();
-          const searchText = filter.title.toLowerCase();
-          return productName.includes(searchText);
-        });
+    const filteredProducts = products.filter(product => {
+      if (filter.title && !product.title.toLowerCase().includes(filter.title.toLowerCase())) {
+        return false;
       }
-      if (filter.rate !== "") {
-        filteredProducts = filteredProducts.filter((product) => {
-          return product.rating.rate <= filter.rate;
-        });
+      if (filter.rate !== 0 && product.rating.rate > filter.rate) {
+        return false;
       }
-      if (filter.categories.length > 0) {
-        filteredProducts = filteredProducts.filter((product) => {
-          return filter.categories.includes(product.category);
-        });
+      if (filter.categories.length > 0 && !filter.categories.includes(product.category)) {
+        return false;
       }
-      setSearchedProducts(filteredProducts);
-    }
-  };
+      return true;
+    });
+    setSearchedProducts(filteredProducts);
+  };  
   
   const sortProductsList = (eventName) => {
     let sortedProducts = [...searchedProducts];
@@ -111,6 +101,8 @@ function SearchProvider({ children }) {
         setDescriptionProduct,
         rate,
         setRateProduct,
+        selectedStar,
+        setSelectedStar
       }}
     >
       {children}

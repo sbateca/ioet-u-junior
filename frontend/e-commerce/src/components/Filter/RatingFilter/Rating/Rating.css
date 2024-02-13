@@ -8,6 +8,10 @@
     color: #FF7A00;
 }
 
+.RatingContainer .StarNotFilled {
+    color: #868686;
+}
+
 .RatingContainer h3 {
     margin-left: 5px;
 }
