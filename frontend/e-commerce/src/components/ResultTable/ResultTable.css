@@ -8,7 +8,7 @@
     gap: 5%;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    width: 100%;
 }
 
 .loader {
@@ -21,7 +21,6 @@
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
     }
-
     @keyframes rotation {
     0% {
         transform: rotate(0deg);

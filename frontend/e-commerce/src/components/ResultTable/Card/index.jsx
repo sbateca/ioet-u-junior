@@ -1,15 +1,17 @@
 import { useContext } from 'react';
-import { Detail } from './Detail'
+import { Detail } from './Detail';
+import PropTypes from 'prop-types';
 import { SearchContext } from '../../../contexts/SearchContext';
 import './Card.css'
 
-function Card ({ image, title, price, description }) {
+function Card ({ image, title, price, description, rate }) {
     const {
         setIsOpen,
         setImageProduct,
         setTitleProduct,
         setPriceProduct,
         setDescriptionProduct,
+        setRateProduct,
     } = useContext(SearchContext);
 
     const openModal = () => {
@@ -18,6 +20,7 @@ function Card ({ image, title, price, description }) {
         setTitleProduct(title)
         setPriceProduct(price)
         setDescriptionProduct(description)
+        setRateProduct(rate)
     }
 
     return (
@@ -28,9 +31,18 @@ function Card ({ image, title, price, description }) {
             <Detail 
                 title = {title}
                 price = {price}
+                rate = {rate}
             />
         </div>
     )
 }
+
+Card.propTypes = {
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
+    rate: PropTypes.number.isRequired,
+};
 
 export { Card }

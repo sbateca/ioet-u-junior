@@ -17,15 +17,18 @@ function ResultTable () {
                 {   isLoading ?
                     <span className="loader"></span>
                     :
-                    searchedProducts.map((product, index) => 
-                        <Card
+                    searchedProducts.length > 0 ? ( searchedProducts.map((product, index) => 
+                        {
+                        return <Card
                             key={index}
                             image = {product.image}
                             title = {product.title}
                             price = {product.price}
                             description = {product.description}
-                        />
-                    )
+                            rate = {Math.round(product.rating.rate)}
+                        />}
+                    )):
+                    <h3>No results found</h3>
                 }
             </div>
             {isOpen && <Modal />}

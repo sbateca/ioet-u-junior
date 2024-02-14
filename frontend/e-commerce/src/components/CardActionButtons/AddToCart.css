@@ -1,0 +1,24 @@
+.CardActionBtn {
+    font-family: 'DM Sans';
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #56D35B;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .CardActionBtn:hover {
+    background-color: #2a812d;
+  }
+  
+  .CardActionBtn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+  }
