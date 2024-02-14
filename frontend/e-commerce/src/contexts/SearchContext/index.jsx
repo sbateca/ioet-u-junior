@@ -1,4 +1,5 @@
 import { useState, useEffect, createContext } from "react";
+import PropTypes from 'prop-types';
 
 const SearchContext = createContext();
 
@@ -46,11 +47,7 @@ function SearchProvider({ children }) {
   
   useEffect(() => {
     filterProducts();
-  }, [products, searchValue]);
-  
-  useEffect(() => {
-    filterProducts();
-  }, [filter]);
+  }, [products, searchValue, filter]);
 
   const filterProducts = () => {
     const filteredProducts = products.filter(product => {
@@ -102,12 +99,17 @@ function SearchProvider({ children }) {
         rate,
         setRateProduct,
         selectedStar,
-        setSelectedStar
+        setSelectedStar,
+        products
       }}
     >
       {children}
     </SearchContext.Provider>
   );
 }
+
+SearchProvider.propTypes = {
+  children: PropTypes.node.isRequired
+};
 
 export { SearchContext, SearchProvider };

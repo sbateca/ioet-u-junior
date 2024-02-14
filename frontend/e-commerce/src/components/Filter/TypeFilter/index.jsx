@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import PropTypes from 'prop-types';
 import { SearchContext } from "../../../contexts/SearchContext";
 import "./TypeFilter.css";
 
@@ -54,5 +55,10 @@ function TypeFilter({ name, options }) {
     </div>
   );
 }
+
+TypeFilter.propTypes = {
+  name: PropTypes.string.isRequired,
+  options: PropTypes.array.isRequired,
+};
 
 export { TypeFilter };

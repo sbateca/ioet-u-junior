@@ -1,4 +1,5 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
+import PropTypes from 'prop-types'
 import { AiFillStar } from 'react-icons/ai'
 import { AiOutlineStar } from 'react-icons/ai';
 import { SearchContext } from '../../../../contexts/SearchContext'
@@ -44,5 +45,12 @@ function Rating ( {stars, onClick, disableClick=false, isRatingFilter=false} ) {
         </div>
     )
 }
+
+Rating.propTypes = {
+    stars: PropTypes.number.isRequired,
+    onClick: PropTypes.func,
+    disableClick: PropTypes.bool,
+    isRatingFilter: PropTypes.bool,
+};
 
 export { Rating }
