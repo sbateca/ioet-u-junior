@@ -1,21 +1,20 @@
-import './App.css'
-import { Filter } from './components/Filter'
-import { Navbar } from './components/Navbar'
-import { ResultInfoBar } from './components/ResultInfoBar'
-import { ResultTable } from './components/ResultTable'
-import { SearchProvider } from './contexts/SearchContext'
+import "./App.css";
+import { Navbar } from "./components/Navbar";
+import { ResultInfoBar } from "./components/ResultInfoBar";
+import { SearchProvider } from "./contexts/SearchContext";
+import { CartProvider } from "./contexts/CartContext";
+import { ContentContainer } from "./components/ContentContainer";
 
 function App() {
   return (
     <SearchProvider>
-      <Navbar />
-      <ResultInfoBar />
-      <div className='content-ResultandFilter'>
-        <Filter/>
-        <ResultTable />
-      </div>
+      <CartProvider>
+        <Navbar />
+        <ResultInfoBar />
+        <ContentContainer />
+      </CartProvider>
     </SearchProvider>
-  )
+  );
 }
 
-export default App
+export default App;

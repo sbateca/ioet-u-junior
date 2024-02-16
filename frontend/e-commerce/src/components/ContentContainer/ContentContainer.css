@@ -1,0 +1,10 @@
+.ContentContainerWithCart{
+    display: grid;
+    grid-template-columns: 75% auto;
+  }
+  
+  .ContentContainerWithoutCart{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  
