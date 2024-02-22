@@ -1,7 +1,10 @@
+import { CartItems } from "./CartItems";
+import "./Cart.css";
+
 function Cart() {
     return (
-      <div>
-        Here the Cart section
+      <div className="Cart">
+        <CartItems />
       </div>
     );
 }

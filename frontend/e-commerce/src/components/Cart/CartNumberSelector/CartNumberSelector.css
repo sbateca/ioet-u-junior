@@ -1,0 +1,23 @@
+.CartNumberSelector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    color: #8B8B8B;
+}
+
+.CartNumberSelector .NumberSelectorIcon{
+    color: #8B8B8B;
+}
+
+.CartNumberSelector .NumberSelectorIconDisabled{
+    color: #e0e0e0e1;
+}
+
+.CartNumberSelector h1 {
+    line-height: 30px;
+    font-size: 1.3em;
+    font-weight: 600;
+}

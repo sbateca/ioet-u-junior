@@ -13,6 +13,7 @@ function SearchProvider({ children }) {
   const [priceProduct, setPriceProduct] = useState("");
   const [descriptionProduct, setDescriptionProduct] = useState("");
   const [rate, setRateProduct] = useState(0);
+  const [productId, setProductId] = useState("");
   const [orderValue, setOrderValue] = useState("");
   const [searchedProducts, setSearchedProducts] = useState([]);
   const [selectedStar, setSelectedStar] = useState(5);
@@ -88,6 +89,8 @@ function SearchProvider({ children }) {
         isLoading,
         isOpen,
         setIsOpen,
+        productId,
+        setProductId,
         imageProduct,
         setImageProduct,
         titleProduct,
