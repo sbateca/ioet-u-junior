@@ -1,0 +1,22 @@
+.NumberSelector {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.NumberSelector h1 {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.NumberSelectorIcon {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.NumberSelectorIconDisabled {
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #d3d3d394;
+}

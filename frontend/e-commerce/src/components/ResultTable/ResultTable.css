@@ -5,7 +5,16 @@
 .ResultContainer .CardResultsContainer {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    gap: 5%;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.ResultContainer .CardResultsContainerWithCart {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 15px;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -21,11 +30,42 @@
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
     }
-    @keyframes rotation {
+
+@keyframes rotation {
     0% {
         transform: rotate(0deg);
     }
     100% {
         transform: rotate(360deg);
     }
-    } 
+}
+
+@media screen and (max-width: 1100px) {
+    .ResultContainer .CardResultsContainer {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .ResultContainer .CardResultsContainer {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .ResultContainer .CardResultsContainer {
+        grid-template-columns: auto;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .ResultContainer .CardResultsContainerWithCart {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .ResultContainer .CardResultsContainerWithCart {
+        grid-template-columns: auto;
+    }
+}

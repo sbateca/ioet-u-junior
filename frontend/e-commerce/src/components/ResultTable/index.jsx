@@ -3,6 +3,7 @@ import { SearchContext } from '../../contexts/SearchContext';
 import { Card } from './Card'
 import { Modal } from '../Modal'
 import './ResultTable.css'
+import { CartContext } from '../../contexts/CartContext';
 
 function ResultTable () {
     const {
@@ -10,10 +11,12 @@ function ResultTable () {
         isLoading,
         isOpen,
       } = useContext(SearchContext);
+      const {showCart} = useContext(CartContext);
+      // validar si el carro está abierto e incluir el respectivo className
     return (
         <div className='ResultContainer'>
             <h2>Results:</h2>
-            <div className='CardResultsContainer'>
+            <div className={showCart?'CardResultsContainerWithCart':'CardResultsContainer'}>
                 {   isLoading ?
                     <span className="loader"></span>
                     :
@@ -21,6 +24,7 @@ function ResultTable () {
                         {
                         return <Card
                             key={index}
+                            id = {product.id}
                             image = {product.image}
                             title = {product.title}
                             price = {product.price}

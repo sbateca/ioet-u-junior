@@ -1,9 +1,14 @@
+import PropTypes from 'prop-types';
 import './AddToCart.css';
 
-function AddToCartButton() {
+function AddToCartButton({ onAddToCart }) {
   return (
-    <button className='CardActionBtn'>Add to cart</button>
+    <button className='CardActionBtn' onClick={onAddToCart}>Add to cart</button>
   )
 }
 
-export { AddToCartButton }
+AddToCartButton.propTypes = {
+  onAddToCart: PropTypes.func,
+};
+
+export { AddToCartButton };

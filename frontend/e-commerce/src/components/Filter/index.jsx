@@ -34,11 +34,17 @@ function Filter () {
 
     return (
         <div className='FilterContainer'>
-            <TypeFilter
-                name='Category'
-                options={categories}
-            />
-            <RatingFilter />
+            {categories.length > 0 ? (
+                <>
+                    <TypeFilter
+                        name='Category'
+                        options={categories}
+                    />
+                    <RatingFilter />
+                </>
+            ) : (
+                <p>Loading categories...</p>
+            )}
         </div>
     )
 }

@@ -1,0 +1,36 @@
+.CartTotal{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+    border-bottom: 1px solid #8B8B8B;
+    padding: 20px 0px;
+}
+
+.CartTotal h3{
+    color: #000;
+    text-align: center;
+}
+
+.CartTotal h4{
+    color: #FF3663;
+    text-align: center;
+}
+
+.CartTotal button{
+    margin: 0 auto;
+    width: 40%;
+    padding: 0.5rem;
+    background-color: #56D35B;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.CartTotal button:hover{
+    background-color: #3a973d;
+}

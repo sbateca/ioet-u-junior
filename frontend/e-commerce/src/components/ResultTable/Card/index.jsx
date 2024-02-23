@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import { SearchContext } from '../../../contexts/SearchContext';
 import './Card.css'
 
-function Card ({ image, title, price, description, rate }) {
+function Card ({ id, image, title, price, description, rate }) {
     const {
         setIsOpen,
+        setProductId,
         setImageProduct,
         setTitleProduct,
         setPriceProduct,
@@ -16,6 +17,7 @@ function Card ({ image, title, price, description, rate }) {
 
     const openModal = () => {
         setIsOpen(true)
+        setProductId(id)
         setImageProduct(image)
         setTitleProduct(title)
         setPriceProduct(price)
@@ -38,6 +40,7 @@ function Card ({ image, title, price, description, rate }) {
 }
 
 Card.propTypes = {
+    id: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,

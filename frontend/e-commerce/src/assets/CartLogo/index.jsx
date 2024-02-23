@@ -4,9 +4,10 @@ import './CartLogo.css'
 
 function CartLogo () {
 
-    const { isCartVisible, setIsCartVisible } = useContext(CartContext);
+    const { isCartVisible, setIsCartVisible, setShowCart } = useContext(CartContext);
     const toggleCartVisibility = () => {
       setIsCartVisible(!isCartVisible);
+      setShowCart(!isCartVisible);
     };
 
     return (
