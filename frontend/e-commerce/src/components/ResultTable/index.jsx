@@ -12,7 +12,6 @@ function ResultTable () {
         isOpen,
       } = useContext(SearchContext);
       const {showCart} = useContext(CartContext);
-      // validar si el carro está abierto e incluir el respectivo className
     return (
         <div className='ResultContainer'>
             <h2>Results:</h2>
